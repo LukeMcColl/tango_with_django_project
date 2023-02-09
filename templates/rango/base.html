@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load rango_template_tags %}
+
+<html>
+	<head lang="en">
+		<meta charset="UFT-8" />
+		<title>Rango -
+		{% block title_block %}
+			How to Tango with Django!
+		{% endblock %}</title>
+	</head>
+	
+	<body>
+		<div>
+		<!--page specific content-->
+		{% block body_block %}
+			This is body_block's default content
+		{% endblock %}
+		</div>
+		
+		<div>
+			{% block sidebar_block %}
+				{% get_category_list category %}
+			{% endblock %}
+		</div>
+		
+		
+		<hr />
+		<div>
+			<ul>
+				<li><a href = "{% url 'rango:add_category' %}"></li>
+				<li><a href = "{% url 'rango:about' %}"></li>
+				<li><a href = "{% url 'rango:index' %}"></li>
+			</ul>
+		</div>
+		
+	</body>
+</html>
